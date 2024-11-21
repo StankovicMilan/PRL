@@ -4,7 +4,7 @@
 #Set the parameters that you want and run the whole file. 
 #It will plot a configuration sampled from the Gibbs distribution.
 
-read_once = False       #run the read once version
+read_once = False       # if set to true, runs the propp-wilson algorithm with read-once randomness 
 n = 50                  #size of the square lattice
 beta = 0.4           #inverse temperature
 
@@ -281,7 +281,8 @@ class Read_Once_Ising:
         label = 'beta = ' + str(self.beta) + ', n = ' + str(self.n)
         plt.title(label)
         plt.show()
-        
+
+
 pw_alg = Read_Once_Ising(n, beta) if read_once else Propp_Wilson_Ising(n, beta)
 _ = pw_alg.run()
 pw_alg.plot_config()
